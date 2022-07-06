@@ -1,3 +1,6 @@
+
+###FUNÇÕES
+
 def conversaoDados(Pm, V):
     a = 9.80665 / 100
     ie = 0.02
@@ -24,10 +27,19 @@ def truncate(f, n):
     return '.'.join([i, (d + '0' * n)[:n]])
 
 
+###FIM DAS FUNÇÕES
+
+
+
+###CÓDIGO ESTRUTURAL
+
+
 dados = []
 pmArray = {}
 vArray = {}
 
+
+arrayPressao = [0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50]
 arrayVolumes = [42.0, 40.0, 38.0, 35.0, 33.0, 32.0, 30.0, 28.0, 27.0]
 arrayFinal = []
 
@@ -40,9 +52,13 @@ print("  Volume em 4 casas sem arredondar:\n\n ", arrayFinal)
 ####erro 10²/v²
 
 arrayFinalErro = []
+arrayFinalErroCompleto = []
+
+
 erroVolume = 0.5
 for i in arrayVolumes:
     ix = (100 / (i ** 2)) * erroVolume
+    arrayFinalErroCompleto.append(ix)
     ix = truncate(ix, 4)
     arrayFinalErro.append(ix)
 print("\n\n\033[1;31m Erro em 4 casas sem arredondar:\033[0;0m \n\n ", arrayFinalErro)
