@@ -32,7 +32,7 @@ def truncate(f, n):
 
 
 ###CÓDIGO ESTRUTURAL
-
+##PARTE 1
 
 dados = []
 pmArray = {}
@@ -49,7 +49,12 @@ for n in arrayVolumes:
     arrayFinal.append(nx)
     nf = truncate(nx, 4)
     arrayTeste.append(nf)
-print("  Volume em 4 casas sem arredondar:\n\n ", arrayTeste)
+
+
+
+print(("\033[1;31m-*-*\033[0;0m") * 27)
+print("\033[1;92m10²/V em 4 casas sem arredondar:\033[0;0m\n\n ", arrayTeste)
+print("\033[1;31m-*-*\033[0;0m"*27)
 
 ####erro 10²/v²
 
@@ -63,16 +68,15 @@ for i in arrayVolumes:
     arrayFinalErroCompleto.append(ix)
     ix = truncate(ix, 4)
     arrayFinalErro.append(ix)
-print("\n\n\033[1;31m Erro em 4 casas sem arredondar:\033[0;0m \n\n ", arrayFinalErro)
+print("\n\033[1;33m Erro de 10²/V em 4 casas sem arredondar:\033[0;0m \n\n ", arrayFinalErro)
+print(("\033[1;31m-*-*\033[0;0m") * 27)
 print("\n\n")
 
 
 
 
 
-
-
-###PARTE 3 QUICA CUADRADO
+###PARTE 3
 
 erroQQ = 0
 for ita in range(0, len(arrayPressao)):
@@ -118,4 +122,16 @@ a = ((xFinal)*(yFinal) - (xyFinal))/((xFinal**2) - x2Final)
 b = yFinal - (a * xFinal)
 
 print("A = {}".format(a))
-print("\nB = {}".format(b))
+print("\nB = {}\n\n\n\n".format(b))
+
+###### PARTE4
+
+##Conversão dos dados
+
+for c in range(0, len(arrayPressao)):
+    conversaoDados(arrayPressao[c], arrayVolumes[c])
+
+
+for c in range(0, len(arrayPressao)):
+    print("\033[1;34m PV = {}\033[0;0m\nErro = {}\n\n".format(dados[c]["PV"], dados[c]["IPV"]))
+
