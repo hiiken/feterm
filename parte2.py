@@ -135,3 +135,37 @@ for c in range(0, len(arrayPressao)):
 for c in range(0, len(arrayPressao)):
     print("\033[1;34mPV = {}\033[0;0m\n\033[1;91mErro = {}\033[0;0m\n\n".format(dados[c]["PV"], dados[c]["IPV"]))
 
+
+
+####parte 5
+
+pvSoma = 0
+for c in range(0, len(dados)):
+    pvSoma += dados[c]["PV"]
+
+pvMedio = pvSoma/len(dados)
+
+somaErro = 0
+
+for c in range(0, len(dados)):
+    somaErro += ((dados[c]["IPV"])/dados[c]["PV"])**2
+
+erroFinal = pvMedio * (somaErro**(1/2))
+
+print("PV médio = ", pvMedio)
+print("Erro = ", erroFinal)
+
+
+
+
+R = 8.31
+T = 273.15 + 20
+
+
+
+
+print
+
+
+n = (pvMedio)/(R*T)
+print("n = ", n)
