@@ -164,8 +164,6 @@ T = 273.15 + 20
 
 
 
-print
-
 
 n = (pvMedio)/(R*T)
 print("n = ", n)
