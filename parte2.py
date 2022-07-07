@@ -133,5 +133,5 @@ for c in range(0, len(arrayPressao)):
 
 
 for c in range(0, len(arrayPressao)):
-    print("\033[1;34m PV = {}\033[0;0m\nErro = {}\n\n".format(dados[c]["PV"], dados[c]["IPV"]))
+    print("\033[1;34mPV = {}\033[0;0m\n\033[1;91mErro = {}\033[0;0m\n\n".format(dados[c]["PV"], dados[c]["IPV"]))
 
