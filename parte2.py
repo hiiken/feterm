@@ -41,13 +41,15 @@ vArray = {}
 
 arrayPressao = [0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50]
 arrayVolumes = [42.0, 40.0, 38.0, 35.0, 33.0, 32.0, 30.0, 28.0, 27.0]
+arrayTeste = []
 arrayFinal = []
 
 for n in arrayVolumes:
     nx = 100 / n
+    arrayFinal.append(nx)
     nf = truncate(nx, 4)
-    arrayFinal.append(nf)
-print("  Volume em 4 casas sem arredondar:\n\n ", arrayFinal)
+    arrayTeste.append(nf)
+print("  Volume em 4 casas sem arredondar:\n\n ", arrayTeste)
 
 ####erro 10²/v²
 
@@ -63,4 +65,57 @@ for i in arrayVolumes:
     arrayFinalErro.append(ix)
 print("\n\n\033[1;31m Erro em 4 casas sem arredondar:\033[0;0m \n\n ", arrayFinalErro)
 print("\n\n")
-print(dados)
+
+
+
+
+
+
+
+###PARTE 3 QUICA CUADRADO
+
+erroQQ = 0
+for ita in range(0, len(arrayPressao)):
+    erroQQ += 1/(0.02**2)
+
+##print(erroQQ)
+
+
+
+###x
+
+somax = 0
+
+for itb in range(0, len(arrayPressao)):
+    somax += arrayFinal[itb]/(0.02**2)
+xFinal = somax*(1/erroQQ)
+##print(xFinal)
+
+
+###x²
+somax2 = 0
+for itc in range(0, len(arrayPressao)):
+    somax2 += (arrayFinal[itc]**2)/(0.02**2)
+
+x2Final = somax2*(1/erroQQ)
+##print(x2Final)
+
+###y
+somay = 0
+for itd in range(0, len(arrayPressao)):
+    somay += arrayPressao[itd]/(0.02**2)
+yFinal = somay*(1/erroQQ)
+##print(yFinal)
+##xy
+
+somaxy = 0
+for ite in range(0, len(arrayPressao)):
+    somaxy += (arrayPressao[ite]*arrayFinal[ite])/(0.02**2)
+xyFinal = somaxy*(1/erroQQ)
+##print(xyFinal)
+
+a = ((xFinal)*(yFinal) - (xyFinal))/((xFinal**2) - x2Final)
+b = yFinal - (a * xFinal)
+
+print("A = {}".format(a))
+print("\nB = {}".format(b))
